@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>坦克大战 · Tank Battle</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- HUD（放在画布上方，不再遮挡地图） -->
+    <div id="hud">
+      <div class="hud-item"><span class="hud-label">关卡</span><span id="level">第一关</span></div>
+      <div class="hud-item"><span class="hud-label">得分</span><span id="score">0</span></div>
+      <div class="hud-item"><span class="hud-label">生命</span><span id="lives">♥♥♥</span></div>
+      <div class="hud-item"><span class="hud-label">剩余敌人</span><span id="enemies">6</span></div>
+      <span id="fx" style="font-size:16px;min-width:70px;"></span>
+      <div id="energy-wrap" title="导弹技能充能">
+        <div id="energy"></div>
+      </div>
+        <button id="help-btn" class="ghost-btn">?</button>
+        <button id="mute-btn" class="ghost-btn">🔊</button>
+        <button id="pause-btn" class="ghost-btn">暂停</button>
+      </div>
+
+    <!-- 局内操作提示（始终可见，强化引导） -->
+    <div id="tipbar">🕹 左侧拖动移动 · 右侧按住开火 · 导弹键放技能 · 拾道具变强</div>
+
+    <div id="game-wrap">
+      <canvas id="game"></canvas>
+
+      <!-- 触屏控制 -->
+      <div id="touch-controls">
+        <div id="joystick"><div id="joy-knob"></div></div>
+        <div id="fire-zone"><span>开火</span></div>
+        <button id="skill-btn">导弹</button>
+        <button id="fire-btn">开火</button>
+      </div>
+
+      <!-- 覆盖层(开始/暂停/胜/负)，内容由 JS 动态填充 -->
+      <div id="overlay" class="show"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="input.js"></script>
+  <script src="entities.js"></script>
+  <script src="game.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
